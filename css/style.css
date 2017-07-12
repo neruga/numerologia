@@ -1,0 +1,126 @@
+body {
+    color: #F1F1F2;
+    background-color: #A1D6E2;
+    overflow: hidden;
+}
+
+.header {
+    height: 17vh;
+    /*background-color: #F1F1F2;
+    border-radius: 25px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.content {
+    height: 80vh;
+}
+
+.textfield {
+    height: 20vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputfield {
+    height: 8vh;
+}
+
+/* input[type=text] */
+.textinput {
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    color: #158196;
+    padding: 10px 16px 10px 16px;
+    /* box-shadow: inset 1px 1px 4px #FFD5E7; */
+    background: #FFEFF6;
+}
+
+.textinput: focus {
+    background   : rgba(0,0,0,.1);
+    border: 1px solid black;
+    border-radius: 100px;
+    outline      : none;
+}
+
+.calcbutton {
+    font-size: 20px;
+    font-family: "Bitter",serif;
+    line-height: 1.8;
+    box-shadow: none;
+    border-radius: 100px;
+    border: none;
+    background: rgba(72, 166, 187, 0.5);
+    color: #F1F1F2;
+}
+
+.calcbutton:active {
+    color: black;
+}
+
+.resultfield {
+    height: 60vh;
+    background-color: #1995AD;
+    border-radius: 25px;
+}
+
+.row {
+    height: 20vh;
+    display: flex; /* or inline-flex */
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.column {
+    width: 25vw;
+    height: 10vh;
+    /*border: 1px solid forestgreen;*/
+    text-align: center;
+    font-size: xx-large;
+    margin: auto;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+    100% {
+    transform: scale(0.3);
+  }
+}
+
+.result {
+    position: fixed;
+    top: 58vh;
+    left: 29vw;
+    font-size: 7rem;
+    animation: showRes 10s;
+}
+
+@keyframes showRes {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
