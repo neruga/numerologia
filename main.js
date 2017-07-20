@@ -27,7 +27,7 @@ function showResult(result) {
     resultDiv.innerHTML = result;
 }
 
-function result(result) {
+function resultNumber(result) {
     
     hideElements();
     showResult(result);
@@ -47,18 +47,97 @@ Literom I , R jest przypisana cyfra 9.
 */
 
 function getCharacterNumber(ch) {
-    console.log(ch.charCodeAt(0));
+    var charCodeNum = null;
+    
+    charCodeNum = ch.charCodeAt(0);
+    
+    if (charCodeNum === 97 ||       // a
+        charCodeNum === 106 ||      // j
+        charCodeNum === 115) {      // s
+        return 1;
+    }
+    if (charCodeNum === 98 ||       // b
+        charCodeNum === 107 ||      // k
+        charCodeNum === 116) {      // t
+        return 2;
+    }
+    if (charCodeNum === 99 ||       // c
+        charCodeNum === 108 ||      // l
+        charCodeNum === 117) {      // u
+        return 3;
+    }
+    if (charCodeNum === 100 ||      // d
+        charCodeNum === 109 ||      // m
+        charCodeNum === 118) {      // v
+        return 4;
+    }
+    if (charCodeNum === 101 ||      // e
+        charCodeNum === 110 ||      // n
+        charCodeNum === 119) {      // w
+        return 5;
+    }
+    if (charCodeNum === 102 ||      // f
+        charCodeNum === 111 ||      // o
+        charCodeNum === 120) {      // x
+        return 6;
+    }
+    if (charCodeNum === 103 ||      // g
+        charCodeNum === 112 ||      // p
+        charCodeNum === 121) {      // y
+        return 7;
+    }
+    if (charCodeNum === 104 ||      // h
+        charCodeNum === 113 ||      // q
+        charCodeNum === 122) {      // y
+        return 8;
+    }
+    if (charCodeNum === 105 ||      // i
+        charCodeNum === 114) {      // r
+        return 9;
+    }
+           
+    return 0;
+}
+
+function calcNum(res) {
+    var len = 1,
+        str = '',
+        resSum = 0,
+        i = 0;
+    
+    str = res.toString();
+    len = str.length;
+    console.log('res: ' + res);
+    console.log('len: ' + len);
+
+    console.log('resSum: ' + resSum);
+
+    if (len > 1) {
+        for (i = 0; i < len; i++) {
+            resSum += parseInt(str[i]);
+        }
+        calcNum(resSum);
+    } else {
+        console.log('else resSum: ' + resSum + ' = ' + res);
+        resSum = res;
+    }
+    console.log('resSum: ' + resSum);
+    return resSum;
 }
 
 function calculate(text){
     var i = 0,
-        result = 10;
+        res = 0;
+        result = 0;
     console.log('t: ', text);
     for(i = 0; i < text.length; i++) {
-        ch = getCharacterNumber(text[i]);
+        res += getCharacterNumber(text[i]);
     }
-    
-    return result;
+    console.log('przed rekurencja: ' + res);    
+    res = calcNum(res);
+    console.log('po rekurencja: ' + res);
+    return res;
+    //return result;
 }
 
 
@@ -68,12 +147,12 @@ function calculateBtnPressed () {
     
     text = getText();
     
-    if (text != null) {
+    if (text !== null) {
         res = calculate(text);
     }
     
-    if(res != null) {
-        result(res);
+    if(res !== null) {
+        resultNumber(res);
     }
 }
 
